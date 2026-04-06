@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Harika G L | Mathematical Biologist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fc 0%, #eef2f8 100%);
+            color: #1a1f2e;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(22,75,190,0.03) 0%, transparent 70%);
+            top: 10%;
+            left: -100px;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(22,75,190,0.02) 0%, transparent 70%);
+            bottom: 10%;
+            right: -100px;
+            border-radius: 50%;
+            animation: float 25s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 20px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #164bbe, #1e3a5f);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 15px rgba(22,75,190,0.2);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1e3a5f 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-tagline {
+            font-size: 20px;
+            color: #4a5568;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .hero-sub {
+            font-size: 14px;
+            color: #8a9bb5;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        .hero-contact {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .hero-contact a {
+            color: #5a6e8a;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .hero-contact a:hover {
+            color: #164bbe;
+        }
+
+        .hero-contact i {
+            margin-right: 8px;
+            color: #164bbe;
+        }
+
+        /* Summary Card */
+        .summary-card {
+            background: white;
+            border-radius: 28px;
+            padding: 48px;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.08);
+            border: 1px solid rgba(22,75,190,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 45px -12px rgba(22,75,190,0.15);
+        }
+
+        .summary-icon {
+            font-size: 48px;
+            color: #164bbe;
+            margin-bottom: 20px;
+        }
+
+        .summary-card p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #2d3a5e;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .summary-highlight {
+            background: linear-gradient(120deg, #ebeff5 0%, #ebeff5 40%, transparent 60%);
+            padding: 0 4px;
+            font-weight: 600;
+            color: #0a0f1c;
+        }
+
+        /* Button Grid */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+
+        .action-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 16px 20px;
+            border-radius: 60px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1f2e;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-family: inherit;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(0px);
+        }
+
+        .action-btn i {
+            font-size: 18px;
+            color: #164bbe;
+            transition: transform 0.2s;
+        }
+
+        .action-btn:hover {
+            background: #164bbe;
+            border-color: #164bbe;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(22,75,190,0.25);
+        }
+
+        .action-btn:hover i {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .action-btn.active {
+            background: #164bbe;
+            border-color: #164bbe;
+            color: white;
+        }
+
+        .action-btn.active i {
+            color: white;
+        }
+
+        /* Content Panel */
+        .content-panel {
+            background: white;
+            border-radius: 28px;
+            padding: 40px 48px;
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.08);
+            border: 1px solid rgba(22,75,190,0.08);
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .panel-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0a0f1c;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid #164bbe;
+            padding-left: 20px;
+        }
+
+        .panel-title i {
+            color: #164bbe;
+            font-size: 24px;
+        }
+
+        /* Content Styling */
+        .dated-item {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .dated-title {
+            font-weight: 700;
+            color: #0a0f1c;
+            font-size: 16px;
+        }
+
+        .dated-date {
+            color: #8a9bb5;
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        .institution, .guide {
+            color: #5a6e8a;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .guide {
+            color: #164bbe;
+            margin-top: 2px;
+            margin-bottom: 6px;
+        }
+
+        .description {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .item-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .item-list li {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            position: relative;
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .item-list li:before {
+            content: "▹";
+            color: #164bbe;
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-line {
+            margin-bottom: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .skills-label {
+            font-weight: 700;
+            color: #0a0f1c;
+            min-width: 120px;
+        }
+
+        .skills-text {
+            color: #4a5568;
+        }
+
+        .paper-link {
+            color: #164bbe;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .paper-link:hover {
+            text-decoration: underline;
+        }
+
+        .subsection-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0a0f1c;
+            margin: 24px 0 16px 0;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+            color: #8a9bb5;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #164bbe;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 4px 15px rgba(22,75,190,0.3);
+            z-index: 100;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: #0e3a8c;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px 16px;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .summary-card {
+                padding: 28px 20px;
+            }
+            .summary-card p {
+                font-size: 15px;
+            }
+            .content-panel {
+                padding: 24px 20px;
+            }
+            .button-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .panel-title {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-contact {
+                gap: 16px;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="bg-animation"></div>
+
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-badge">
+            <i class="fas fa-dna"></i> COMPUTATIONAL BIOLOGIST
+        </div>
+        <h1>Harika G L</h1>
+        <div class="hero-tagline">Mathematical Modeling · Nonlinear Dynamics · Bifurcation Analysis</div>
+        <div class="hero-sub">PdP NETWORKS | INTEGRATED STRESS RESPONSE | MULTISTABILITY</div>
+        <div class="hero-contact">
+            <a href="#"><i class="fas fa-map-marker-alt"></i> IIIT Delhi, India</a>
+            <a href="mailto:harikal@iiitd.ac.in"><i class="fas fa-envelope"></i> harikal@iiitd.ac.in</a>
+        </div>
+    </div>
+
+    <!-- Summary Card -->
+    <div class="summary-card">
+        <div class="summary-icon">
+        </div>
+        <p>
+            <span class="summary-highlight">Mathematical modeling of biological systems</span>, with an emphasis on 
+            <span class="summary-highlight">nonlinear dynamical systems and bifurcation analysis</span>. I study 
+            <span class="summary-highlight">phosphorylation-dephosphorylation networks</span> and the 
+            <span class="summary-highlight">integrated stress response in translation initiation</span>, aiming to understand 
+            <span class="summary-highlight">multistability, switching dynamics, and regulatory mechanisms</span> in biochemical 
+            networks using both <span class="summary-highlight">mechanistic and data-driven approaches</span>.
+        </p>
+    </div>
+
+    <!-- Interactive Button Grid -->
+    <div class="button-grid">
+        <button class="action-btn" data-section="education"><i class="fas fa-graduation-cap"></i> Education</button>
+        <button class="action-btn" data-section="publications"><i class="fas fa-scroll"></i> Publications</button>
+        <button class="action-btn" data-section="conferences"><i class="fas fa-microphone"></i> Conferences</button>
+        <button class="action-btn" data-section="experience"><i class="fas fa-laptop-code"></i> Research Experience</button>
+        <button class="action-btn" data-section="skills"><i class="fas fa-wrench"></i> Technical Skills</button>
+        <button class="action-btn" data-section="teaching"><i class="fas fa-chalkboard-user"></i> Teaching</button>
+        <button class="action-btn" data-section="awards"><i class="fas fa-trophy"></i> Awards</button>
+    </div>
+
+    <!-- Dynamic Content Panel -->
+    <div class="content-panel" id="contentPanel">
+        <div class="panel-title">
+            <i class="fas fa-info-circle"></i>
+            <span id="panelTitle">Select a section above</span>
+        </div>
+        <div id="panelContent">
+            <p style="color: #8a9bb5; text-align: center; padding: 40px;">
+                <i class="fas fa-arrow-up" style="font-size: 24px; margin-bottom: 12px; display: block;"></i>
+                Click any button above to view my professional profile
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <i class="fas fa-flask"></i> Mathematical Biology & Computational Systems
+    </div>
+</div>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-top" id="scrollTopBtn">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+    // All content data (exactly matching original CV)
+    const contentData = {
+        education: {
+            title: "Education",
+            icon: "fa-graduation-cap",
+            html: `
+                <div class="dated-item">
+                    <span class="dated-title">PhD, Computational Biology (Ongoing)</span>
+                    <span class="dated-date">2022–2027</span>
+                </div>
+                <div class="institution">IIIT Delhi</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">M.Tech, Computational Biology</span>
+                    <span class="dated-date">2020–2023</span>
+                </div>
+                <div class="institution">IIIT Delhi | CGPA: 8.85</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">B.Tech, Bioinformatics</span>
+                    <span class="dated-date">2016–2020</span>
+                </div>
+                <div class="institution">Tamil Nadu Agricultural University | CGPA: 8.19</div>
+            `
+        },
+        publications: {
+            title: "Publications",
+            icon: "fa-scroll",
+            html: `
+                <div class="subsection-title">Accepted</div>
+                <ul class="item-list">
+                    <li><strong>Harika G L</strong>, Sriram K.<br>
+                    <em>Emergent robust oscillatory dynamics in the interlocked feedback-feedforward loops.</em><br>
+                    IET Systems Biology (2025).<br>
+                    <a href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/syb2.12111" class="paper-link" target="_blank"><strong><em>Link</em></strong></a></li>
+
+                    <li><strong>Harika G L</strong>, Sriram K.<br>
+                    <em>Kinetic modelling reveals the presence of multistability in normal and stressful conditions in translational initiation mechanism.</em><br>
+                    PLOS ONE (2025).<br>
+                    <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0319280" class="paper-link" target="_blank"><strong><em>Link</em></strong></a></li>
+                </ul>
+
+                <div class="subsection-title">In Preparation</div>
+                <ul class="item-list">
+                    <li><strong>Harika G L</strong>, Sriram K.<br><em>Automated Ensemble-Based Bifurcation Analysis (ABBA)</em></li>
+                    <li><strong>Harika G L</strong>, Sriram K.<br><em>High-throughput bifurcation analysis across kinetic parameter ensembles in systems biology models</em></li>
+                    <li><strong>Harika G L</strong>, Sriram K.<br><em>Systems-level modelling of the regulation of 4E-BP, the assembly of eIF4 subunits, and inhibition by 4EGI-1 reveals multistability in translation initiation process</em></li>
+                </ul>
+            `
+        },
+        conferences: {
+            title: "Conference Presentations",
+            icon: "fa-microphone",
+            html: `
+                <ul class="item-list">
+                    <li><strong>SIAM Conference on the Life Sciences (LS26)</strong>, Cleveland, Ohio, U.S. (2026)<br>Automated Ensemble-Based Bifurcation Analysis (ABBA)</li>
+                    <li><strong>International Conference AIxLife 2026</strong>, Advances in Computational Biology Across Scales for Life & Health Sciences, SASTRA (2026) – Accepted oral presentation</li>
+                    <li><strong>ACM IKDD International Conference on Data Science (CODS)</strong>, IISER, Pune (2025) – Accepted paper presentation</li>
+                    <li><strong>CRHD International Conference</strong>, IIT Hyderabad (2024) – Best Poster Award</li>
+                    <li><strong>National Seminar</strong>, Coimbatore (2020) – Best Poster Presentation</li>
+                </ul>
+            `
+        },
+        experience: {
+            title: "Research Experience",
+            icon: "fa-laptop-code",
+            html: `
+                <div class="dated-item">
+                    <span class="dated-title">Automated Ensemble-Based Bifurcation Analysis (ABBA)</span>
+                    <span class="dated-date">Present</span>
+                </div>
+                <div class="guide">Guide: Dr. Sriram K</div>
+                <div class="description">An ensemble bifurcation analysis framework integrating Latin Hypercube Sampling and MATCONT to construct bifurcation landscapes for nonlinear ODE models. Identifies rare dynamical regimes such as bistability and reveals hidden structures including SNTC and pitchfork bifurcations.</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Systems-level modelling of the regulation of 4E-BP, the assembly of eIF4 subunits, and inhibition by 4EGI-1</span>
+                    <span class="dated-date">Present</span>
+                </div>
+                <div class="guide">Guide: Dr. Sriram K</div>
+                <div class="description">A systems-level model of eIF4F-mediated translation initiation, revealing bistability and tribability driven by 4E-BP phosphorylation, and investigating the effects of the small molecular inhibitor 4EGI-1 on system dynamics.</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Kinetic modelling reveals multistability in translational initiation under normal and stressful conditions</span>
+                    <span class="dated-date">Mar 2025</span>
+                </div>
+                <div class="guide">Guide: Dr. Sriram K</div>
+                <div class="description">Constructed a mathematical model capturing bistability and tristability in translation initiation under normal and integrated stress response (ISR) conditions via phosphorylation-dephosphorylation mechanisms.</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Emergent robust oscillatory dynamics in interlocked feedback-feedforward loops in <em>Arabidopsis thaliana</em></span>
+                    <span class="dated-date">Jan 2025</span>
+                </div>
+                <div class="guide">Guide: Dr. Sriram K</div>
+                <div class="description">Study of emergent dynamics in interlocked feedback and feedforward loops in the plant circadian model.</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Structural, Kinetic, and Dynamical analysis of receptor-activated proteolysis</span>
+                    <span class="dated-date">Dec 2021 – Dec 2022</span>
+                </div>
+                <div class="guide">Guide: Dr. Sriram K</div>
+                <div class="description"><a href="http://repository.iiitd.edu.in/xmlui/handle/123456789/1337" class="paper-link" target="_blank"><strong><em>Link</em></strong></a></div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Total and quasi-steady-state approximations in enzyme kinetics, and solving Riccati equations</span>
+                    <span class="dated-date">May 2021 – Jul 2021</span>
+                </div>
+                <div class="guide">Guide: Dr. Sriram K</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Computational Study on GST proteins structural variation in Rice and their interactions with multiple herbicide classes</span>
+                    <span class="dated-date">Jan 2020 – Apr 2020</span>
+                </div>
+                <div class="guide">Guide: Dr. Saranya N</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Metagenomic analysis of microbiome datasets using QIIME</span>
+                    <span class="dated-date">Sep 2019 – Dec 2019</span>
+                </div>
+                <div class="guide">Guide: Dr. Soumalee Basu</div>
+            `
+        },
+        skills: {
+            title: "Core Technical Skills",
+            icon: "fa-wrench",
+            html: `
+                <div class="skills-line"><span class="skills-label">Expertise Area:</span> <span class="skills-text">Mathematical modelling, Computational Biology, Bioinformatics</span></div>
+                <div class="skills-line"><span class="skills-label">Programming:</span> <span class="skills-text">Python, MATLAB, Mathematica, R, C++, Java</span></div>
+                <div class="skills-line"><span class="skills-label">Tools:</span> <span class="skills-text">XPPAUT, MATCONT, COPASI, CRNToolbox, CellDesigner</span></div>
+            `
+        },
+        teaching: {
+            title: "Teaching & Academic Responsibilities",
+            icon: "fa-chalkboard-user",
+            html: `
+                <div class="dated-item">
+                    <span class="dated-title">Teaching Assistantship in Introduction to Mathematical Biology (IMB) and Cell Biology and Biochemistry (CBB)</span>
+                    <span class="dated-date">Jan 2022 – Present</span>
+                </div>
+                <div class="institution">IIIT Delhi</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Conducting MATLAB Tutorials</span>
+                    <span class="dated-date">Aug 2021 & Dec 2021</span>
+                </div>
+                <div class="institution">IIIT Delhi</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Teaching Assistantship in Genetics and Molecular Biology</span>
+                    <span class="dated-date">Aug 2021 – Jan 2022</span>
+                </div>
+                <div class="institution">IIIT Delhi</div>
+
+                <div class="dated-item">
+                    <span class="dated-title">Teaching Assistantship in Social Psychology</span>
+                    <span class="dated-date">Jan 2021 – Apr 2021</span>
+                </div>
+                <div class="institution">IIIT Delhi</div>
+            `
+        },
+        awards: {
+            title: "Awards",
+            icon: "fa-trophy",
+            html: `
+                <ul class="item-list">
+                    <li>Best Poster Award, CRHD International Conference, IIT Hyderabad (2024)</li>
+                    <li>Best TA Award, IIIT Delhi (2024)</li>
+                    <li>Best M.Tech Thesis, IIIT Delhi (2023)</li>
+                    <li>Best Poster Presentation, National Seminar, Coimbatore (2020)</li>
+                    <li>IASc-INSA-NASI Summer Research Fellowship (2019)</li>
+                </ul>
+            `
+        }
+    };
+
+    // DOM elements
+    const buttons = document.querySelectorAll('.action-btn');
+    const panelTitle = document.getElementById('panelTitle');
+    const panelContent = document.getElementById('panelContent');
+
+    // Function to load section content
+    function loadSection(sectionId) {
+        const data = contentData[sectionId];
+        if (data) {
+            panelTitle.innerHTML = `<i class="fas ${data.icon}"></i> ${data.title}`;
+            panelContent.innerHTML = data.html;
+        }
+    }
+
+    // Add click handlers to buttons
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const section = button.getAttribute('data-section');
+            
+            // Update active state
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Load content
+            loadSection(section);
+            
+            // Smooth scroll to content panel
+            document.getElementById('contentPanel').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
+    // Scroll to Top functionality
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add('show');
+        } else {
+            scrollTopBtn.classList.remove('show');
+        }
+    });
+    
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Load default section (Education) on page load
+    setTimeout(() => {
+        document.querySelector('[data-section="education"]').click();
+    }, 100);
+</script>
+</body>
+</html>
